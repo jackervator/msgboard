@@ -9,6 +9,7 @@ Demo::Application.routes.draw do
 	get "welcome/say_hello" => "welcome#say"
 end
 get "welcome" => "welcome#index"
+match '/people/:id' =>'people#delete', :via =>"delete", :as =>"Del"
 root :to => "people#index"
 
   # The priority is based upon order of creation:

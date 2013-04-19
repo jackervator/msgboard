@@ -1,9 +1,12 @@
-  <tr id="id">
+  <tr id="id_<%= person.id%>">
+    <td class="editing"><input class="name_input"></input></td>
     <td class="normal"><%= person.name %></td>
+    <td class="editing"><input class="bio_input"></input></td>
     <td class="normal"><%= person.bio %></td>
+    <td class="editing"><input class="birth_input"></input></td>
     <td class="normal"><%= person.birthday %></td>
     <td class="normal"><%= button_to_function "Edit", "Jedit()" %></td>
-    <div class="editing"><%= render :partial => "peopleEditing" , :locals => { :person =>person } %></div>
-    <td><%= button_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="editing">  <%= render :partial=>"peopleEditing", :locals=>{:person=>person}%></td>
+    <td><%= button_to 'Destroy', Del_path(person), :method =>:delete, data: { confirm: 'Are you sure?' }  ,:remote=>true%></td>
   </tr>
 
