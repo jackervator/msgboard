@@ -1,24 +1,19 @@
-<h1>Listing people</h1>
-
+<div style="text-align:center;">
+　<div style="margin:1 auto;border: 2px solid blue; width:200:px; ;height:30:px">Listing People</div>
+</div>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Bio</th>
-    <th>Birthday</th>
+    <th>Name &nbsp;&nbsp;&nbsp;       </th>
+    <th>Sometingsay&nbsp;&nbsp;&nbsp; </th>
+    <th>Hobbit&nbsp;&nbsp;&nbsp;      </th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+</table>
+<table id="Jid">
 <% @people.each do |person| %>
-  <tr>
-    <td class="normal"><%= person.name %></td>
-    <td class="normal"><%= person.bio %></td>
-    <td class="normal"><%= person.birthday %></td>
-    <td class="normal"><%= button_to_function "Edit", "Jedit()" %></td>
-    <div class="editing"><%= render :partial => "peopleEditing" , :locals => { :person =>person } %></div>
-    <td><%= button_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<%= render :partial=>"show", :locals=>{:person=>person}%>
 <% end %>
 </table>
 

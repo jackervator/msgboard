@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @person }
+      format.js
     end
   end
 
@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @person }
+      format.js
     end
   end
 
@@ -45,11 +45,11 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to people_url }
-        format.json { render json: @person, status: :created, location: @person }
+        format.html { render :nothing =>true }
+        format.js
       else
         format.html { render people_url }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
+	format.js
       end
     end
   end
@@ -62,10 +62,9 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.update_attributes(params[:person])
         format.html { redirect_to people_url }
-        format.json { head :no_content }
+        format.js
       else
-        format.html { render action: "edit" }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
+        format.html { render :nothing =>true }
       end
     end
   end
@@ -77,8 +76,8 @@ class PeopleController < ApplicationController
     @person.destroy
 
     respond_to do |format|
-      format.html { redirect_to people_url }
-      format.json { head :no_content }
+      format.html { render :nothing =>true }
+      format.js
     end
   end
 end
