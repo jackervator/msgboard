@@ -12,10 +12,11 @@
 
 <% @people.each do |person| %>
   <tr>
-    <td><%= person.name %></td>
-    <td><%= person.bio %></td>
-    <td><%= person.birthday %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
+    <td class="normal"><%= person.name %></td>
+    <td class="normal"><%= person.bio %></td>
+    <td class="normal"><%= person.birthday %></td>
+    <td class="normal"><%= button_to_function "Edit", "Jedit()" %></td>
+    <div class="editing"><%= render :partial => "peopleEditing" , :locals => { :person =>person } %></div>
     <td><%= button_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

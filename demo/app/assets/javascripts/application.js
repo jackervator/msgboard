@@ -28,7 +28,17 @@ function Jdiscard()
         $(".newbutton").hide().fadeIn();
 }
 
+function Jedit()
+{
+	
+	$(".newspersonevent").hide();
+	$(".editing").hide().fadeIn();
+	$(".discard").hide().fadeIn();
+}
+
+
 $(document).ready(function(){
+	$(".editing").hide();
 	$(".discard").hide();
 	$(".newpersonevent").hide();
 	$(".editpersonevent").hide();
